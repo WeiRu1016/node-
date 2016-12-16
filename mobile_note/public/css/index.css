@@ -1,0 +1,95 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+html,body{
+	height: 100%;
+	width: 100%;
+	font-family: "Microsoft YaHei";
+	font-size: 20px;
+}
+.nav{
+	width: 100%;
+	height: 40px;
+	background-color: #8ed498;
+	position: relative;
+	text-align: center;
+	color: #fff;
+	line-height: 40px;
+}
+.nav-menu{
+	border-top: 4px solid #fff;
+	width: 16px;
+	position: absolute;
+	display: block;
+	top: 18px;
+	left:5px;
+}
+.nav-menu:before,.nav-menu:after{
+	content: "";
+	border: 2px solid #fff;
+	width: 20px;
+	position: absolute;
+	left:5px;
+}
+.nav-menu:before{
+	top: 7px;
+}
+.nav-menu:after{
+	top: -15px;
+}
+.list-item{
+	width: 100%;
+	height: 61px;
+	position: relative;
+}
+.item-content{
+	border-bottom: 1px dotted #abbeae;
+	margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 2;
+}
+.list-item:nth-child(2n){
+	background-color: #fff;
+}
+.list-item:nth-child(2n+1){
+	background-color: #fbfbfb;
+}
+.item-icon[data-category="in"]{
+	background: url(../img/icon-in.png) no-repeat;
+	background-size: 40px;
+}
+.item-icon[data-category="transport"]{
+	background: url(../img/icon-transport.png) no-repeat;
+	background-size: 40px;
+}
+.item-icon[data-category="home"]{
+	background: url(../img/icon-home.png) no-repeat;
+	background-size: 40px;
+}
+.item-icon{
+	background-size: 40px;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    float: left;
+}
+.item-category{
+	width: 80px;
+    text-align: center;
+    display: inline-block;
+}
+.item-money[data-type="in"]{
+	color: #8ed498;
+}
+.item-money[data-type="out"]{
+	color: #d74c3d;
+}
+.item-date{
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	font-size: 14px;
+}
