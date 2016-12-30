@@ -1,5 +1,23 @@
-<% if(lists && lists.length > 0){ %>
-	<% for(var i = 0;i < lists.length; i++){ %>
-		
+<% if(list && list.length > 0){ %>   	
+	<% for(var i = 0;i < list.length; i++){ %>
+		<div class="group">
+			<a class="icon icon-round icon-normal icon-time" href="/detail/"{{list[i].date}}>{{list[i].date}}</a>
+			<span>{{list[i].date}}</span>
+			<div class="line"></div>
+		</div>
+		<%for(var j = 0;j < list[i].items;j++){
+			var temp = list[i].items[j];
+		%>	
+			<div class="group">
+				<a class="icon icon-round icon-small icon-time "{{temp.category}} href="/edit/"{{temp._id}}></a>
+				<span>{{temp.category}}:&yen{{temp.money}}</span>
+				<div class="line"></div>
+			</div>
+		<%}%>
 	<% } %>
-<% } %>
+<% }else{ %>
+	<div class="add-item">
+		<a class="icon icon-round icon-big icon-center icon-add" href="/edit"></a>
+		<p>还没有记录~赶快添加一笔~。~</p>
+	</div>
+<%}%>
