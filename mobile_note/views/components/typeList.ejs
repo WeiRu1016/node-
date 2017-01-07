@@ -1,0 +1,14 @@
+<ul class="type-list">
+    <%for(var i = 0;i < typeList.length;i++){%>
+        <li>
+            <%for(var j = 0;j < typeList[i].subType.length;j++){
+                var temp = typeList[i].subType[j];
+            %>
+            <span class="type-item" data-type="<%=typeList[i].type%>" data-subtype="<%=temp.type%>" data-typename="<%=temp.typeName%>">
+                <span class="icon-<%=temp.type%> icon-round icon-middle icon"></span>
+                <span><%=temp.typeName%></span>
+            </span>
+            <%}%>
+        </li>
+    <%}%>
+</ul>

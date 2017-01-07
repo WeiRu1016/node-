@@ -9,46 +9,12 @@
 </head>
 <body style="background-color:#eee">
 	<%- include('components/nav') %>
-    <ul class="type-list">
-    <%for(var i = 0;i < typeList.length;i++){%>
-        <li>
-            <%for(var j = 0;j < typeList[i].subType.length;j++){
-                var temp = typeList[i].subType[j];
-            %>
-            <span class="type-item" data-type="<%=typeList[i].type%>" data-subtype="<%=temp.type%>" data-typename="<%=temp.typeName%>">
-                <span class="icon-<%=temp.type%> icon-round icon-middle icon"></span>
-                <span><%=temp.typeName%></span>
-            </span>
-            <%}%>
-        </li>
-    <%}%>
-    </ul>
-    <%if(selectType){%>
-        <table id="calculator" cellspacing="0px" style="display:table">
-    <%}else{%>
-        <table id="calculator" cellspacing="0px">
-    <%}%>
-        <thead>
-        <td colspan="2" class="type">
-            <%if(selectType){%>
-            <span id="cal-type" class= "icon-<%=selectType.type%> icon-round icon-middle icon"></span>
-            <span><%=selectType.typeName%></span>
-            <%}else{%>
-            <span id="cal-type" class="icon-round icon-middle icon"></span>
-            <span></span>
-            <%}%>
-        </td>
-        <%if(selectType){%>
-            <td colspan="2" class="money"><span id="cal-result" contenteditable=true><%=selectType.money%></span></td>
-        <%}else{%>
-            <td colspan="2" class="money"><span id="cal-result" contenteditable=true>0</span></td>
-        <%}%>
-        </thead>
-        <tr><td class="number">1</td><td class="number">2</td><td class="number">3</td><td class="calc-add">+</td></tr>
-        <tr><td class="number">4</td><td class="number">5</td><td class="number">6</td><td class="calc-sub">-</td></tr>
-        <tr><td class="number">7</td><td class="number">8</td><td class="number">9</td><td class="calc-ok" rowspan="2">ok</td></tr>
-        <tr><td class="dot">.</td><td class="number">0</td><td class="calc-backspack"><span>X</span></td></tr>
-    </table>
+    <%- include('components/typeList') %>
+    <%- include('components/calculator') %>
+	<%if(flag === 'change'){%>
+    	<input style="display:none" value="<%=selectType._id%>" id="item-id">
+		<input style="display:none" value="<%=selectType.date%>" id="item-date">
+	<%}%>
     <script src="../../js/edit.js"></script>
 </body>
 </html>

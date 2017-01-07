@@ -1,0 +1,49 @@
+<%if(selectType){%>
+    <table id="calculator" cellspacing="0px" style="display:table">
+<%}else{%>
+    <table id="calculator" cellspacing="0px">
+<%}%>
+    <thead>
+    <td colspan="2" class="type">
+        <%if(selectType){%>
+            <span id="cal-type" class= "icon-<%=selectType.type%> icon-round icon-middle icon" data-type="<%=selectType.type%>" data-subtype="<%=selectType.category%>" data-typename="<%=selectType.typeName%>"></span>
+            <span><%=selectType.typeName%></span>
+        <%}else{%>
+            <span id="cal-type" class="icon-round icon-middle icon"></span>
+            <span></span>
+        <%}%>
+    </td>
+    <%if(selectType){%>
+            <td colspan="2" class="money"><span id="cal-result" contenteditable=true><%=selectType.money%></span></td>
+    <%}else{%>
+            <td colspan="2" class="money"><span id="cal-result" contenteditable=true>0</span></td>
+    <%}%>
+    </thead>
+    <tbody>
+        <tr>
+            <td data-type="number">1</td>
+            <td data-type="number">2</td>
+            <td data-type="number">3</td>
+            <td class="calc-add" data-type="opreation-add">+</td>
+        </tr>
+        <tr>
+            <td data-type="number">4</td>
+            <td data-type="number">5</td>
+            <td data-type="number">6</td>
+            <td class="calc-sub" data-type="opreation-sub">-</td>
+        </tr>
+        <tr>
+            <td data-type="number">7</td>
+            <td data-type="number">8</td>
+            <td data-type="number">9</td>
+            <td id="cal-done" class="calc-ok" rowspan="2" data-type="submit-<%=flag%>">ok</td>  
+        </tr>
+        <tr>
+            <td data-type="dot">.</td>
+            <td data-type="number">0</td>
+            <td class="calc-backspack" data-type="backspace">
+                <span>X</span>
+            </td>
+        </tr>
+    </tobdy>
+</table>

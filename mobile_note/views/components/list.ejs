@@ -1,18 +1,11 @@
-<% var Enum = {
-	in:'收入',
-	transport:'交通',
-	food:'饮食',
-	home:'住宿'
-};
-%>
 <% if(lists && lists.length > 0){ %> 
 	<div class="list">
 		<% for(var i = 0;i < lists.length;i++) {%>
 			<div class="list-item">
 				<div class="item-date"><%= lists[i].date %></div>
-				<div class="item-content" data-type="<%= lists[i].type %>">
-					<i class="item-icon" data-category=<%= lists[i].category %> ></i>
-					<span class="item-category"><%= Enum[lists[i].category] %></span>
+				<div class="item-content" data-type="<%= lists[i].type %>" data-subType="<%= lists[i].category %>">
+					<i class="icon icon-round icon-middle icon-<%= lists[i].category %>" data-category=<%= lists[i].category %> ></i>
+					<span class="item-category"><%= lists[i].typeName %></span>
 					<%if(lists[i].type === 'in'){%>
 						<span class="item-money" data-type="<%= lists[i].type %>">+<%= lists[i].money %></span>
 					<%}else{%>

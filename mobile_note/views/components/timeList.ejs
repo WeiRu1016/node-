@@ -1,23 +1,21 @@
-<% if(list && list.length > 0){ %> 
-<div class="item-list">  	
-	<% for(var i = 0;i < list.length; i++){ %>
+<% if(list && list.length > 0){ %>
+<div class="item-list">
+	<% for(var i = 0;i < list.length; i++){%>
+		<%var item = list[i];%>
 		<div class="group">
-			<a class="icon icon-round icon-time icon-small" href="/detail/<%=list[i]._id%>"></a>
-			<span><%=list[i]._id%></span>
+			<a class="icon icon-round icon-time icon-small" href="/detail/<%=item._id%>"></a>
+			<span><%=item._id%></span>
 		</div>
-		<%for(var j = 0;j < list[i].item.length;j++){
-			var temp = list[i].item[j];
-		%>	
-			<div class="group">
-				<a class="icon icon-round icon-middle icon-<%=temp.category%>" href="/edit/change/<%=temp._id%>"></a>
-				<span><%=temp.typeName%>:&yen<%=temp.money%></span>
-			</div>
-		<%}%>
-	<% } %>
+		<% for(var j = 0;j < list[i].item.length;j++){
+			var temp = list[i].item[j];%>
+		
+		<div class="group">
+			<a class="icon icon-round icon-middle icon-<%=temp.category%>" href="/edit/change/<%=temp._id%>"></a>
+			<span><%=temp.typeName%>:&yen<%=temp.money%></span>
+		</div>
+		<%}
+	 }%>
 </div>
-<% }else{ %>
-	<div class="add-item">
-		<a class="icon icon-round icon-big icon-center icon-add" href="/edit/add"></a>
-		<p>还没有记录~赶快添加一笔~。~</p>
-	</div>
+<%}else{ %>
+	<%- include('./add') %>
 <%}%>
